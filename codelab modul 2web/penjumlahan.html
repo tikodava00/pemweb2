@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penjumlahan </title>
+    <style>
+        /* Gaya untuk container */
+        .container {
+            width: 300px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            background-color: #f9f9f9;
+        }
+
+        input {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 10px 5px;
+            border: none;
+            border-radius: 5px;
+            background-color: #28a745;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        button.reset {
+            background-color: #f60202;
+        }
+
+        button.reset:hover {
+            background-color: #c82333;
+        }
+
+        #hasil {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Operasi Penjumlahan</h2>
+    <input type="number" id="angka1" placeholder="Masukkan angka pertama" required>
+    <input type="number" id="angka2" placeholder="Masukkan angka kedua" required>
+    <div>
+        <button onclick="hitung()">Jumlahkan</button>
+        <button class="reset" onclick="resetForm()">Reset</button>
+    </div>
+    <div id="hasil"></div>
+</div>
+
+<script>
+    function hitung() {
+        // Ambil nilai dari input
+        var angka1 = parseFloat(document.getElementById("angka1").value);
+        var angka2 = parseFloat(document.getElementById("angka2").value);
+
+        // Periksa apakah nilai input valid
+        if (isNaN(angka1) || isNaN(angka2)) {
+            document.getElementById("hasil").innerText = "Mohon masukkan angka yang valid!";
+            return;
+        }
+
+        // Hitung hasil penjumlahan
+        var hasil = angka1 + angka2;
+
+        // Tampilkan hasil
+        document.getElementById("hasil").innerText = "Hasil: " + hasil;
+    }
+
+    function resetForm() {
+        // Reset nilai input dan hasil
+        document.getElementById("angka1").value = '';
+        document.getElementById("angka2").value = '';
+        document.getElementById("hasil").innerText = '';
+    }
+</script>
+
+</body>
+</html>
